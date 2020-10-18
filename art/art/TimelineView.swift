@@ -8,13 +8,31 @@
 import SwiftUI
 
 struct TimelineView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  var body: some View {
+    NavigationView {
+      ScrollView(showsIndicators: false) {
+        VStack(alignment: .leading) {
+          ForEach(0..<4) { _ in
+            PostView()
+              .padding(.bottom)
+          }
+        }
+      }
+      .padding([.horizontal, .top])
+      .navigationBarItems(leading:
+        Button(action: { }) {
+          Image(systemName: "camera")
+            .font(.title3)
+        }
+      )
+      .navigationBarTitle(Text("art"))
+      .navigationBarTitleDisplayMode(.inline)
     }
+  }
 }
 
 struct TimelineView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimelineView()
-    }
+  static var previews: some View {
+    TimelineView()
+  }
 }
